@@ -1,4 +1,4 @@
-﻿namespace BetterDoggie
+namespace BetterDoggie
 {
     using UnityEngine;
     using System.ComponentModel;
@@ -51,16 +51,22 @@
         public string KeybindHint { get; set; } = "Upgraded SCP-939s have a boost ability that <color=orange>temporarily grants the ability to break down doors.</color>" +
             "To use this ability, you must set a <color=orange>keybind in your console (~ key) with the format: \"cmdbind <keycode> .doggieboost\"";
 
+        [Description("door bust cooldown text text")]
         public string cooldowntext { get; set; } = $"Door bust on cooldown for %i% more seconds.";
         
+        [Description("help command text")]
         public string helpcommandtext { get; set; } = "Upgraded SCP-939s have a boost ability that temporarily grants the ability to break down doors. \nTo use this ability, you must set a keybind in your console (~ key) with the format: cmdbind <keycode> .doggieboost \nFor example: cmdbind f .doggieboost will bind your F key to the .doggieboost command.";
 
+        [Description("Door busting reactivation text")]
         public string doorreactivatetext { get; set; } = $"Door busting ability can be re-activated in %i% seconds.";
 
         public int KeybindHintShowDuration { get; set; } = 20;
 
         [Description("Can 939 bust open doors and gates if it is below a certain AHP?")]
         public bool EnableDogDoorBusting { get; set; } = true;
+
+        [Description("The text when door bust ability is activated")]
+        public string doorbusttextability { get; set; } = "<color=green>Door busting ability activated.";
 
         [Description("The cooldown between enabling / disabling the door busting ability.")]
         public int DoorBustingCooldown { get; set; } = 15;
