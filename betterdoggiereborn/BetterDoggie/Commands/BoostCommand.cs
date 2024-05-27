@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using CommandSystem;
 using Exiled.API.Features;
@@ -31,7 +31,7 @@ namespace BetterDoggie.Commands
 
                 if (_activeAbilities.ContainsKey(player))
                 {
-                    if (!(_activeAbilities[player] == null)) Timing.KillCoroutines((CoroutineHandle)_activeAbilities[player]);
+                    if (_activeAbilities[player] != null) Timing.KillCoroutines((CoroutineHandle)_activeAbilities[player]);
                     _activeAbilities.Remove(player);
                     _abilityCooldowns.Add(player, _config.DoorBustingCooldown);
                     Timing.RunCoroutine(CooldownCoroutine(player));
@@ -41,7 +41,7 @@ namespace BetterDoggie.Commands
                 else
                 {
                     _activeAbilities.Add(player, null);
-                    player.ShowHint("<color=green>Door busting ability activated.");
+                    player.ShowHint(BetterDoggie.Singleton.Config.doorbusttextability);
                     response = "Door busting ability enabled.";
                     return true;
                 }
